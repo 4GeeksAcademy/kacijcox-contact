@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from '../store/appContext';
-import { useNavigation } from "react-router";
+import { useNavigate } from "react-router";
 import ContactCard from '../component/contactcard';
 
 // Use the ContactCard component within the Home component
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const [contacts, setContacts] = useState([])
-  const navigate = useNavigation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     actions.getContacts()

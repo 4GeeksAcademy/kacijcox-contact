@@ -1,5 +1,3 @@
-import { sync } from "remote-origin-url"
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {

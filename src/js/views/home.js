@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from '../store/appContext';
-import { useNavigate, useNavigation } from "react-router";
+import { useNavigation } from "react-router";
 import ContactCard from '../component/contactcard';
 
 // Use the ContactCard component within the Home component

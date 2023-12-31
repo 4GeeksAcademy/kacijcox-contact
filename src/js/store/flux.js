@@ -35,13 +35,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let data = response.json()
 			},
 			getContacts: async () => {
-				const store = getStore()
-				let response = await fetch("https://playground.4geeks.com/apis/fake/contact/something")
-				let data = response.json
-				setStore({
-					contact: data
-				})
-			},
+                const store = getStore()
+                let response = await fetch("https://playground.4geeks.com/apis/fake/contact/agenda/something")
+                let data = await response.json()
+                console.log(data)
+                setStore({
+                    contacts: data
+                })
+            },
 			updateContact: async (name, address, phone, email, contactID) => {
 				// do fetch request, add contact to store with setStore
 
@@ -58,7 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json",
 					}
 				})
-				let data = response.json()
+				let data = await response.json()
 			},
 			deleteContact: async (contactID) => {
 				let store = getStore()
@@ -68,10 +69,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json",
 					},
 				})
-				let data = response.json()
+				let data = await response.json()
 				setStore({
 					contacts: store.contacts.filter((contact) => contact.id !== contactID)
 				})
+				window.location.reload()
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

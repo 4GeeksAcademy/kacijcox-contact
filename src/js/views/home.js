@@ -10,12 +10,16 @@ export const Home = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    actions.getContacts()
-    setContacts(store.contacts)
+    async function getContacts(){
+      if(store.contacts.length < 1) {
+        await actions.addContact("Kaci", "123 Main Street", 1231231234, "Kaci@gmail.com")
+      }
+      await actions.getContacts()
+      setContacts(store.contacts)
+    }
+    getContacts()
   }, []); // Add an empty dependency array if you want it to run only once on mount
-  const handleClick = () => {
-    navigate("/addcontact")
-  }
+
   return (
     <div>
       {/* You can use the ContactCard component here */}
@@ -24,10 +28,10 @@ export const Home = () => {
           phone={contact.phone}
           email={contact.email}
           address={contact.address}
-          contactid={contact.contact_id} />
+          contactid={contact.id} />
       ))}
       {/* Rest of your Home component code */}
-      <button class="btn btn-success" onClick={() => handleClick}>add contact</button>
+     
     </div>
 
   );

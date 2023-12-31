@@ -32,6 +32,7 @@ const ContactCard = (props) => {
           </div>
         </div>
         <button class="btn btn-danger" onClick={() => actions.deleteContact(props.contactid)}>delete</button>
+        <button class="btn btn-primary" onClick={() => actions.updateContact (props.contactid)}>update</button>
       </div>
     </div>
   );

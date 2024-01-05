@@ -11,9 +11,6 @@ export const Home = () => {
 
   useEffect(() => {
     async function getContacts(){
-      if(store.contacts.length < 1) {
-        await actions.addContact("Kaci", "123 Main Street", 1231231234, "Kaci@gmail.com")
-      }
       await actions.getContacts()
       setContacts(store.contacts)
     }

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
@@ -31,8 +32,8 @@ const ContactCard = (props) => {
             <p>{props.email}</p>
           </div>
         </div>
-        <button class="btn btn-danger" onClick={() => actions.deleteContact(props.contactid)}>delete</button>
-        <button class="btn btn-primary" onClick={() => actions.updateContact (props.contactid)}>update</button>
+        <button className="btn btn-danger" onClick={() => actions.deleteContact(props.contactid)}>delete</button>
+        <Link to={"/UpdateContact/"+ props.contactid} className="btn btn-primary">update</Link>
       </div>
     </div>
   );
